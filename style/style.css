@@ -284,4 +284,52 @@ footer {
   /* —— UMUM —— */
   /* cegah scroll horizontal akibat spacing negatif/gambar besar */
   body { overflow-x: hidden; }
+
+   /* ——— BLOK PROFIL ——— */
+  #profileMenu {
+    flex-direction: column;          /* sudah vertikal */
+    align-items: flex-start;         /* rata kiri, sejajar nav-link */
+    width: 100%;
+    margin-top: .75rem;
+    border-top: 1px solid #e5e5e5;   /* pembatas visual */
+    padding-top: 1rem;
+    gap: .75rem;
+  }
+
+  /* nama + ikon */
+  #profileMenu a {
+    font-size: .95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .35rem;                     /* jarak ikon ↔ nama */
+  }
+  #profileMenu i { font-size: 1.15rem; }
+
+  /* ——— LOGOUT BUTTON ——— */
+  #logoutBtn {
+    width: 100%;                     /* full-width utk kemudahan sentuh */
+    text-align: center;
+    padding: .55rem 1rem;
+    font-size: .9rem;
+  }
+}
+
+/* ―― Tampilan default (≥ 768 px) ―― */
+#profileMenu {
+  display: flex;               /* sejajar horizontal */
+  align-items: center;         /* vertikal rata-tengah */
+  gap: 1rem;                   /* jarak nama ↔ tombol */
+}
+
+#profileMenu a {               /* link berisi icon + nama */
+  font-weight: 600;
+  color: #000;                 /* pastikan tidak abu-abu */
+  text-decoration: none;
+}
+
+#logoutBtn {
+  padding: .35rem .85rem;      /* sedikit lebih tinggi  */
+  font-size: .85rem;
+  line-height: 1;              /* height pas            */
 }
