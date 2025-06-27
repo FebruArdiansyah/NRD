@@ -12,24 +12,39 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/job.css"/>
 </head>
-<body style="background-image: url('assets/visi.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+<body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-2">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-primary" href="index.html">
-        <img src="assets/logo1.png" alt="Logo" height="32">
-      </a>
-      <div class="ms-auto d-flex gap-3 align-items-center">
-        <a class="nav-link fw-bold fs-6 text-primary" href="find-job.html">Lowongan Aktif</a>
-        <a href="profile.html" id="profileIcon" class="nav-link">
-          <i class="bi bi-person-circle fs-4 text-primary"></i>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="assets/logo1.png" alt="Logo PT Winnicode Garuda Teknologi" width="300">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#tentang">Tentang</a></li>
+        <a id="lihatLowongan" class="nav-link" href="find-job.html">Lihat Lowongan</a>
+      </ul>
+      <div id="authMenu" class="d-flex">
+        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+      </div>
+      <div id="profileMenu" class="d-none align-items-center">
+        <a href="profile.html" class="me-2 text-dark text-decoration-none d-flex align-items-center">
+          <i class="bi bi-person-circle me-1 fs-5"></i>
+          <span id="navbarUsername" class="fw-semibold">Pengguna</span>
         </a>
+        <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Logout</button>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Main Content -->
   <div class="container py-5">
@@ -60,14 +75,7 @@
 
         <div class="text-muted mb-2">Full-Time • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
         <div class="text-end">
-          <a  href="#"
-    class="btn btn-white apply-btn"
-    data-posisi="Front-End Developer"      
-    data-bs-toggle="modal"
-    data-bs-target="#applyModal"
-    style="background-color:#eb44bb;color:#fff">
-  Lamar
-</a>
+          <a  href="#"class="btn btn-white apply-btn" data-posisi="Front-End Developer" data-bs-toggle="modal" data-bs-target="#applyModal" style="background-color:#eb44bb;color:#fff"> Lamar </a>
         </div>
       </div>
     </div>
@@ -97,14 +105,7 @@
 
         <div class="text-muted mb-2">Freelance • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
         <div class="text-end">
-          <a  href="#"
-    class="btn btn-white apply-btn"
-    data-posisi="Front-End Developer"     
-    data-bs-toggle="modal"
-    data-bs-target="#applyModal"
-    style="background-color:#eb44bb;color:#fff">
-  Lamar
-</a>
+                    <a  href="#"class="btn btn-white apply-btn" data-posisi="Front-End Developer" data-bs-toggle="modal" data-bs-target="#applyModal" style="background-color:#eb44bb;color:#fff"> Lamar </a>
         </div>
       </div>
     </div>
@@ -134,14 +135,7 @@
 
         <div class="text-muted mb-2">Kontrak • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
         <div class="text-end">
-          <a  href="#"
-    class="btn btn-white apply-btn"
-    data-posisi="Front-End Developer"      
-    data-bs-toggle="modal"
-    data-bs-target="#applyModal"
-    style="background-color:#eb44bb;color:#fff">
-  Lamar
-</a>
+                    <a  href="#"class="btn btn-white apply-btn" data-posisi="Front-End Developer" data-bs-toggle="modal" data-bs-target="#applyModal" style="background-color:#eb44bb;color:#fff"> Lamar </a>
         </div>
       </div>
     </div>
@@ -253,8 +247,44 @@
     </div>
   </div>
 
+  <!-- Footer -->
+<footer id="footer" class="footer-section py-5 bg-light">
+  <div class="container">
+    <div class="row text-start">
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">COMPANY</h6>
+        <ul class="list-unstyled">
+          <li><a href="#cara-kerja" class="text-decoration-none text-dark">Cara Kerja Kami</a></li>
+          <li><a href="#hero" class="text-decoration-none text-dark">Beranda</a></li>
+          <li><a href="#tentang" class="text-decoration-none text-dark">Tentang Kami</a></li>
+          <li><a href="#lihatlowongan" class="text-decoration-none text-dark" id="footerLowongan">Lowongan Aktif</a></li>
+          <li><a href="#" class="text-decoration-none text-dark">Privacy & Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">TAUTAN</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-globe2 me-2"></i><a href="https://www.winnicode.com" target="_blank" class="text-decoration-none text-dark">www.winnicode.com</a></li>
+          <li><i class="bi bi-instagram me-2"></i><a href="https://instagram.com/winnicode" target="_blank" class="text-decoration-none text-dark">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">KONTAK KAMI</h6>
+        <ul class="list-unstyled text-dark">
+          <li><i class="bi bi-envelope me-2"></i><a href="mailto:winnicodegarudaofficial@gmail.com" class="text-decoration-none text-dark">winnicodegarudaofficial@gmail.com</a></li>
+          <li><i class="bi bi-geo-alt me-2"></i>Jl. Asia Afrika No.158. Kb. Pisang, Kec. Sumur Bandung, Kota Bandung</li>
+          <li><i class="bi bi-telephone me-2"></i>Hubungi: +6285159932501</li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <p class="mb-0 small text-muted">&copy; 2025 PT Winnicode Garuda Teknologi.</p>
+    </div>
+  </div>
+</footer>
+
   <!-- ========= SCRIPT ========= -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/apply-modal.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

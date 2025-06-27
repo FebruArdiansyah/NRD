@@ -20,6 +20,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) navbar.classList.toggle('shrink', window.scrollY > 50);
   });
 
+   /* =====================================================================
+     Quick-Apply Modal Logic
+     ===================================================================== */
+  const applyModal = document.getElementById('applyModal');
+  if (applyModal) {
+    /* Prefill input posisi setiap kali modal dibuka */
+    applyModal.addEventListener('show.bs.modal', (event) => {
+      const btn = event.relatedTarget;                         // tombol Lamar yg diklik
+      const pos = btn?.getAttribute('data-posisi') || '';
+      document.getElementById('posisiInput').value = pos;
+    });
+
+    /* Validasi & “submit” form */
+    document.getElementById('applyForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const cv  = e.target.cv.files[0];
+      const fol = e.target.portfolio.files[0];
+      if (cv  && cv.size  > 2 * 1024 * 1024) return alert('CV melebihi 2 MB');
+      if (fol && fol.size > 5 * 1024 * 1024) return alert('Portofolio melebihi 5 MB');
+
+      // Simulasi kirim → tutup modal → tampilkan modal sukses
+      setTimeout(() => {
+        bootstrap.Modal.getInstance(applyModal).hide();
+        new bootstrap.Modal('#successModal').show();
+        e.target.reset();
+      }, 500);
+    });
+  }
+
   /* ───────────────────────── Auth state ───────────────────────── */
   let user = null;
   try {
@@ -122,27 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Pasang event listener ke tombol navbar dan footer
 lihatLowonganNav?.addEventListener('click', handleLihatLowongan);
 lihatLowonganFoot?.addEventListener('click', handleLihatLowongan);
-
-  /* ───────────────────────── APPLY JOB ───────────────────────── */
-  applyButtons.forEach(btn => {
-    btn?.addEventListener('click', function (e) {
-      const logged = JSON.parse(localStorage.getItem('loggedInUser'));
-      const jobTitle = this.closest('.card')?.querySelector('h5')?.textContent?.trim();
-      if (!logged) { e.preventDefault(); return window.location.href = 'sign-in.html'; }
-      if (jobTitle) {
-        window.location.href = `form.html?posisi=${encodeURIComponent(jobTitle)}`;
-      } else alert('Gagal mengambil data posisi.');
-    });
-  });
-
-  /* ───────────────────────── FORM LAMARAN ───────────────────────── */
-  const formLamaran = document.getElementById('lamaranForm');
-  formLamaran?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const modalEl = document.getElementById('notifikasiModal');
-    modalEl && new bootstrap.Modal(modalEl).show();
-    formLamaran.reset();
-  });
 
   /* ───────────────────────── Profil display/edit ───────────────────────── */
   const updateProfileDisplay = (cur) => {

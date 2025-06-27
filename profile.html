@@ -23,6 +23,7 @@
     </div>
   </nav>
 
+  
   <!-- TITLE -->
   <div class="container text-white my-4">
     <a href="index.html" class="text-white me-2"><i class="bi bi-arrow-left fs-4"></i></a>
@@ -33,50 +34,49 @@
   <div class="container mb-5">
     <div class="profile-card">
 
-      <!-- Informasi Profil -->
+      <!-- ===== Informasi Profil ===== -->
       <h5 class="section-head">Informasi Profil</h5>
-      <div class="row align-items-center mb-4">
+
+      <div class="row g-lg-4 align-items-start mb-4"><!-- ROW mulai -->
+
         <!-- Avatar -->
-        <div class="col-lg-3 mb-4 mb-lg-0 text-center">
+        <div class="col-lg-3 text-center mb-3 mb-lg-0">
           <div class="avatar-wrap mx-auto">
             <img id="profilePicture" src="assets/profile.png" alt="Foto Profil">
-            <div class="edit-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-              <i class="bi bi-pencil-fill"></i>
-            </div>
           </div>
-          <small class="text-danger d-block mt-2">Foto wajib di-upload</small>
         </div>
 
         <!-- Kontak & Personal -->
         <div class="col-lg-9">
           <div class="mb-3">
-            <span class="label">Nama Lengkap</span><br>
+            <span class="label">Nama Lengkap</span>
             <span class="value" id="profileUsernameSidebar">User</span>
           </div>
 
-          <h6 class="fw-bold mb-3">Informasi Kontak & Personal</h6>
-          <div class="row g-4">
-            <div class="col-md-4"><span class="label">Email</span><br><span class="value" id="profileEmail">-</span></div>
-            <div class="col-md-4"><span class="label">Phone</span><br><span class="value" id="profilePhone">-</span></div>
-            <div class="col-md-4"><span class="label">Lokasi</span><br><span class="value" id="profileLocation">-</span></div>
+          <h6 class="fw-bold mb-3">Informasi Kontak &amp; Personal</h6>
+          <div class="row gy-4">
+            <div class="col-md-4"><span class="label">Email</span>  <span class="value" id="profileEmail">-</span></div>
+            <div class="col-md-4"><span class="label">Phone</span>  <span class="value" id="profilePhone">-</span></div>
+            <div class="col-md-4"><span class="label">Lokasi</span> <span class="value" id="profileLocation">-</span></div>
 
-            <div class="col-md-4"><span class="label">Tempat Lahir</span><br><span class="value" id="showBirthPlace">-</span></div>
-            <div class="col-md-4"><span class="label">Tanggal Lahir</span><br><span class="value" id="profileDOB">-</span></div>
-            <div class="col-md-4"><span class="label">Jenis Kelamin</span><br><span class="value" id="showGender">-</span></div>
+            <div class="col-md-4"><span class="label">Tempat Lahir</span> <span class="value" id="showBirthPlace">-</span></div>
+            <div class="col-md-4"><span class="label">Tanggal Lahir</span> <span class="value" id="profileDOB">-</span></div>
+            <div class="col-md-4"><span class="label">Jenis Kelamin</span><span class="value" id="showGender">-</span></div>
 
-            <div class="col-md-4"><span class="label">No KTP</span><br><span class="value" id="showKTP">-</span></div>
-            <div class="col-md-4"><span class="label">Pendidikan Terakhir</span><br><span class="value" id="profileEducation">-</span></div>
-            <div class="col-md-4"><span class="label">Alamat</span><br><span class="value" id="showAddress">-</span></div>
+            <div class="col-md-4"><span class="label">No KTP</span> <span class="value" id="showKTP">-</span></div>
+            <div class="col-md-4"><span class="label">Pendidikan Terakhir</span><span class="value" id="profileEducation">-</span></div>
+            <div class="col-md-4"><span class="label">Alamat</span> <span class="value" id="showAddress">-</span></div>
           </div>
-        </div>
-      </div>
+        </div><!-- /.col-lg-9 -->
 
-      <!-- Ringkasan & lainnya -->
+      </div><!-- ROW berakhir -->
+
+      <!-- ===== Ringkasan & lainnya ===== -->
       <h5 class="section-head">Ringkasan Profesional</h5>
-      <p id="profileSummary"  class="preline mb-4">-</p>
+      <p id="profileSummary" class="preline mb-4">-</p>
 
       <h5 class="section-head">Riwayat Pekerjaan</h5>
-      <p id="experienceText"  class="preline mb-4">-</p>
+      <p id="experienceText" class="preline mb-4">-</p>
 
       <h5 class="section-head">Pendidikan</h5>
       <p id="educationDetail" class="preline mb-4">-</p>
@@ -87,15 +87,25 @@
       <h5 class="section-head">Sertifikasi</h5>
       <p id="certificateText" class="preline mb-5">-</p>
 
-      <!-- Tag -->
+      <!-- ===== Tag ===== -->
       <div class="row">
-        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Software</h6><div id="softwareTags" class="d-flex flex-wrap gap-2"></div></div>
-        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Bahasa</h6><div id="languageTags" class="d-flex flex-wrap gap-2"></div></div>
-        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Minat</h6><div id="interestTags" class="d-flex flex-wrap gap-2"></div></div>
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Software</h6><div id="softwareTags"  class="d-flex flex-wrap gap-2"></div></div>
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Bahasa</h6>  <div id="languageTags"  class="d-flex flex-wrap gap-2"></div></div>
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Minat</h6>    <div id="interestTags"  class="d-flex flex-wrap gap-2"></div></div>
       </div>
 
-      <div class="text-end"><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profil</button></div>
-    </div>
+      <div class="text-end">           <!-- menempel ke kanan -->
+  <button
+    id="editProfileBtn"
+    class="btn btn-outline-primary mt-3"
+    data-bs-toggle="modal"
+    data-bs-target="#editProfileModal">
+    <i class="bi bi-pencil-square me-1"></i> Edit Profil
+  </button>
+</div>
+
+    </div><!-- /.profile-card -->
+    
   </div>
 
   <!-- MODAL EDIT PROFIL -->
