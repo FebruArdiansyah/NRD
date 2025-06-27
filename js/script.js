@@ -106,13 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ───────────────────────── Lihat Lowongan ───────────────────────── */
   const handleLihatLowongan = (e) => {
-    e.preventDefault();
-    const logged = JSON.parse(localStorage.getItem('loggedInUser'));
-    window.location.href = logged ? 'find-job.html' : 'sign-in.html';
-  };
-  viewJobsBtns.forEach(btn => btn?.addEventListener('click', handleLihatLowongan));
-  lihatLowonganNav?.addEventListener('click', handleLihatLowongan);
-  lihatLowonganFoot?.addEventListener('click', handleLihatLowongan);
+  e.preventDefault();
+  const logged = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (logged) {
+    window.location.href = 'find-job.html';
+  } else {
+    const loginModalEl = document.getElementById('loginModal');
+    if (loginModalEl) {
+      const loginModal = new bootstrap.Modal(loginModalEl);
+      loginModal.show();
+    }
+  }
+};
+
 
   /* ───────────────────────── APPLY JOB ───────────────────────── */
   applyButtons.forEach(btn => {
