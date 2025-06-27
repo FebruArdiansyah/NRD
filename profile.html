@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil – Winni Code</title>
+
+  <!-- Google Font & Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Ikon & CSS kustom -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/profile.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <img src="assets/logo1.png" alt="Logo Winnicode">
+      <span><i class="bi bi-person-circle me-1"></i><span id="profileUsername">User</span></span>
+    </div>
+  </nav>
+
+  <!-- TITLE -->
+  <div class="container text-white my-4">
+    <a href="index.html" class="text-white me-2"><i class="bi bi-arrow-left fs-4"></i></a>
+    <span class="fs-3 fw-semibold">Profil Saya</span>
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="container mb-5">
+    <div class="profile-card">
+
+      <!-- Informasi Profil -->
+      <h5 class="section-head">Informasi Profil</h5>
+      <div class="row align-items-center mb-4">
+        <!-- Avatar -->
+        <div class="col-lg-3 mb-4 mb-lg-0 text-center">
+          <div class="avatar-wrap mx-auto">
+            <img id="profilePicture" src="assets/profile.png" alt="Foto Profil">
+            <div class="edit-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+              <i class="bi bi-pencil-fill"></i>
+            </div>
+          </div>
+          <small class="text-danger d-block mt-2">Foto wajib di-upload</small>
+        </div>
+
+        <!-- Kontak & Personal -->
+        <div class="col-lg-9">
+          <div class="mb-3">
+            <span class="label">Nama Lengkap</span><br>
+            <span class="value" id="profileUsernameSidebar">User</span>
+          </div>
+
+          <h6 class="fw-bold mb-3">Informasi Kontak & Personal</h6>
+          <div class="row g-4">
+            <div class="col-md-4"><span class="label">Email</span><br><span class="value" id="profileEmail">-</span></div>
+            <div class="col-md-4"><span class="label">Phone</span><br><span class="value" id="profilePhone">-</span></div>
+            <div class="col-md-4"><span class="label">Lokasi</span><br><span class="value" id="profileLocation">-</span></div>
+
+            <div class="col-md-4"><span class="label">Tempat Lahir</span><br><span class="value" id="showBirthPlace">-</span></div>
+            <div class="col-md-4"><span class="label">Tanggal Lahir</span><br><span class="value" id="profileDOB">-</span></div>
+            <div class="col-md-4"><span class="label">Jenis Kelamin</span><br><span class="value" id="showGender">-</span></div>
+
+            <div class="col-md-4"><span class="label">No KTP</span><br><span class="value" id="showKTP">-</span></div>
+            <div class="col-md-4"><span class="label">Pendidikan Terakhir</span><br><span class="value" id="profileEducation">-</span></div>
+            <div class="col-md-4"><span class="label">Alamat</span><br><span class="value" id="showAddress">-</span></div>
+
+            <div class="col-md-4">
+              <span class="label">CV</span><br>
+              <a id="profileCvLink" class="value text-decoration-underline" href="#" target="_blank">- belum ada -</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ringkasan & lainnya -->
+      <h5 class="section-head">Ringkasan Profesional</h5>
+      <p id="profileSummary"  class="preline mb-4">-</p>
+
+      <h5 class="section-head">Riwayat Pekerjaan</h5>
+      <p id="experienceText"  class="preline mb-4">-</p>
+
+      <h5 class="section-head">Pendidikan</h5>
+      <p id="educationDetail" class="preline mb-4">-</p>
+
+      <h5 class="section-head">Detail Prestasi</h5>
+      <p id="achievementText" class="preline mb-4">-</p>
+
+      <h5 class="section-head">Sertifikasi</h5>
+      <p id="certificateText" class="preline mb-5">-</p>
+
+      <!-- Tag -->
+      <div class="row">
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Software</h6><div id="softwareTags" class="d-flex flex-wrap gap-2"></div></div>
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Bahasa</h6><div id="languageTags" class="d-flex flex-wrap gap-2"></div></div>
+        <div class="col-md-4 mb-4"><h6 class="fw-bold text-primary">Minat</h6><div id="interestTags" class="d-flex flex-wrap gap-2"></div></div>
+      </div>
+
+      <div class="text-end"><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profil</button></div>
+    </div>
+  </div>
+
+  <!-- MODAL EDIT PROFIL -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <form id="editProfileForm" class="modal-content" enctype="multipart/form-data">
+        <div class="modal-header"><h5 class="modal-title">Edit Profil</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+
+        <div class="modal-body">
+
+          <div class="mb-3"><label class="form-label">Foto Profil <span class="text-danger">*</span></label><input id="editProfileImage" type="file" accept="image/*" class="form-control"></div>
+
+          <div class="mb-4"><label class="form-label">Unggah CV (PDF) <span class="text-danger">*</span></label><input id="editCv" type="file" accept="application/pdf" class="form-control"></div>
+
+          <!-- data dasar -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-6"><label class="form-label">Nama Lengkap *</label><input id="editUsername" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Email *</label><input id="editEmail" type="email" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">No HP *</label><input id="editPhone" type="tel" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Lokasi Domisili</label><input id="editLocation" class="form-control"></div>
+          </div>
+
+          <!-- data personal -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-6"><label class="form-label">Tempat Lahir *</label><input id="birthPlace" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Tanggal Lahir *</label><input id="editDOB" type="date" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Jenis Kelamin *</label><select id="gender" class="form-select" required><option value="">Pilih…</option><option>Laki-Laki</option><option>Perempuan</option></select></div>
+            <div class="col-md-6"><label class="form-label">No KTP *</label><input id="editKtp" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Pendidikan Terakhir *</label><select id="editEducation" class="form-select" required><option value="">Pilih…</option><option>SMA / Sederajat</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
+            <div class="col-12"><label class="form-label">Alamat Lengkap</label><textarea id="address" rows="2" class="form-control autogrow" placeholder="Jl. …, Kota …"></textarea></div>
+          </div>
+
+          <!-- Ringkasan & lain-lain -->
+          <div class="mb-3"><label class="form-label">Ringkasan Profesional</label><textarea id="editSummary" rows="4" class="form-control autogrow" placeholder="Tulis ringkasan singkat…"></textarea></div>
+          <div class="mb-3"><label class="form-label">Riwayat Pekerjaan</label><textarea id="editJobHistory" rows="4" class="form-control autogrow" placeholder="Posisi – Perusahaan (tahun-tahun)…&#10;• Pencapaian"></textarea></div>
+          <div class="mb-3"><label class="form-label">Detail Pendidikan</label><textarea id="editEducationDetail" rows="3" class="form-control autogrow" placeholder="IPK, topik skripsi, organisasi…"></textarea></div>
+          <div class="mb-3"><label class="form-label">Detail Prestasi</label><textarea id="editAchievements" rows="3" class="form-control autogrow" placeholder="• Juara 1 Hackathon…"></textarea></div>
+          <div class="mb-3"><label class="form-label">Sertifikasi (nama, penerbit, tahun)</label><textarea id="editCertificatesDesc" rows="3" class="form-control autogrow" placeholder="AWS SAA – AWS, 2024&#10;PSM-I – Scrum.org, 2023"></textarea></div>
+
+          <!-- tags -->
+          <div class="row g-3">
+            <div class="col-md-4"><label class="form-label">Software (koma)</label><input id="editSoftware" class="form-control" placeholder="React, Figma"></div>
+            <div class="col-md-4"><label class="form-label">Bahasa (koma)</label><input id="editLanguages" class="form-control" placeholder="Indonesia, Inggris"></div>
+            <div class="col-md-4"><label class="form-label">Minat (koma)</label><input id="editInterests" class="form-control" placeholder="AI, UI/UX"></div>
+          </div>
+
+        </div>
+        <div class="modal-footer"><button class="btn btn-primary" type="submit">Simpan Perubahan</button></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

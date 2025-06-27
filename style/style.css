@@ -1,0 +1,275 @@
+/* ========== RESET DASAR ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ========== WARNA KOSTUM ========== */
+.text-pink {
+  color: #eb44bb !important;
+}
+
+.text-pink:hover {
+  color: #c7209b;
+  text-decoration: underline;
+}
+
+.text-primary {
+  color: #2196f3 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2196f3;
+}
+
+/* ========== BUTTON ========== */
+.btn-pink,
+.btn-save {
+  background-color: #eb44bb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.btn-pink:hover,
+.btn-save:hover {
+  background-color: #d936a6;
+}
+
+.btn-outline-pink {
+  background-color: #fff;
+  color: #eb44bb;
+  border: 2px solid #eb44bb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-outline-pink:hover {
+  background-color: #eb44bb;
+  color: #fff;
+}
+
+/* ========== FORM ========== */
+.form-control {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #2196f3;
+  box-shadow: none;
+}
+
+/* ========== PROFILE PAGE KHUSUS ========== */
+.sidebar-pink {
+  background-color: #eb44bb;
+  color: white;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.sidebar-pink img {
+  border: 4px solid #fff;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.sidebar-pink h5,
+.sidebar-pink p,
+.sidebar-pink span,
+.sidebar-pink strong {
+  color: white;
+}
+
+.sidebar-pink hr {
+  border-color: #fff;
+}
+
+.sidebar-pink .btn {
+  background-color: white;
+  color: #eb44bb;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+}
+
+/* ========== CARD / SECTION ========== */
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.job-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.badge-skill {
+  background-color: #e9ecef;
+  color: #333;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ========== HERO SECTION ========== */
+.bg-pink {
+  background-color: #eb44bb !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.bg-pink h2,
+.bg-pink h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.bg-pink img {
+  max-width: 400px;
+  height: auto;
+}
+
+/* ========== NOTIFIKASI / ALERT ========== */
+.alert-success {
+  background-color: #e6f4ea;
+  border: 1px solid #b0e1c2;
+  color: #2e7d32;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* ========== NAVBAR SHRINK EFFECT ========== */
+.navbar {
+  padding: 1rem 1.5rem;
+  transition: padding 0.3s ease;
+}
+
+.navbar.shrink {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ========== UTILITAS ========== */
+.text-sm {
+  font-size: 0.9rem;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ========== FORMULIR LAMARAN ========== */
+.left-section {
+  background-color: #f8d7da;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.left-section img {
+  max-width: 80%;
+  height: auto;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-weight: 700;
+  color: #2196f3;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  border-bottom: 3px solid #2196f3;
+  padding-bottom: 5px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+  .sidebar-pink {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .sidebar-pink img {
+    max-width: 120px;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .bg-pink img {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-section {
+    padding: 1rem;
+  }
+
+  .sidebar-pink {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar-pink img {
+    max-width: 100px;
+  }
+
+  .form-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}

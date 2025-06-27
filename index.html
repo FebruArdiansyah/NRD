@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Winnicode Garuda Teknologi</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style/style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Notifikasi sukses daftar -->
+<div id="notif" class="alert alert-success alert-dismissible fade show d-none text-center mb-0 rounded-0" role="alert">
+  Akun berhasil dibuat! <a href="profile.html" class="alert-link">Kunjungi Profile</a>.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Notifikasi sukses lamaran -->
+<div id="notifLamaran" class="alert alert-success alert-dismissible fade show d-none text-center mb-0 rounded-0" role="alert">
+  Lamaran berhasil dikirim! <a href="profile.html" class="alert-link">Lihat Status Lamaran</a>.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="assets/logo1.png" alt="Logo PT Winnicode Garuda Teknologi" width="300">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="#hero">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cara-kerja">Cara Kerja Winnicode</a></li>
+        <li class="nav-item"><a class="nav-link" href="#lihat-lowongan" id="lihatLowongan">Lihat Lowongan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#footer">Kontak Kami</a></li>
+      </ul>
+      <div id="authMenu" class="d-flex">
+        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+      </div>
+      <div id="profileMenu" class="d-none align-items-center">
+        <a href="profile.html" class="me-2 text-dark text-decoration-none d-flex align-items-center">
+          <i class="bi bi-person-circle me-1 fs-5"></i>
+          <span id="navbarUsername" class="fw-semibold">Pengguna</span>
+        </a>
+        <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<h2 id="greeting" class="text-center text-dark my-4"></h2>
+
+<!-- Modal Sign In -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="row g-0">
+        <!-- Kiri -->
+        <div class="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center text-white text-center p-4" style="background-color: #eb44bb;">
+          <h3 class="fw-bold mb-3">WORK FROM ANYWHERE!</h3>
+          <img src="assets/logo1.png" alt="Logo" class="mb-3" style="width: 200px;">
+          <img src="assets/form.png" alt="Ilustrasi" class="img-fluid mt-3" style="max-height: 300px;">
+        </div>
+
+        <!-- Kanan -->
+        <div class="col-md-6 p-4">
+          <div class="text-center mb-3">
+            <img src="assets/logo1.png" alt="Logo" style="width: 200px;">
+            <h5 class="mt-2 text-primary fw-bold">Masuk</h5>
+          </div>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Nama Pengguna atau Email</label>
+              <input type="text" class="form-control" id="username" placeholder="Lee Jeno" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="**********" required>
+            </div>
+            <div class="mb-3 text-end">
+              <a href="#" class="text-pink fw-semibold small" style="color: #eb44bb;">Lupa Password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Masuk</button>
+          </form>
+          <div class="text-center mt-3">
+            <p class="mb-0">Belum punya akun?</p>
+            <a href="sign-up.html" class="fw-bold" style="color: #eb44bb;">Daftar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sign Up -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="scroll-behavior: smooth;">
+      <div class="row g-0">
+        <!-- Kiri -->
+        <div class="col-lg-6 d-none d-lg-flex flex-column justify-content-center align-items-center text-white text-center p-4" style="background-color: #eb44bb;">
+          <h3 class="fw-bold mb-3">WORK FROM ANYWHERE!</h3>
+          <img src="assets/logo1.png" alt="Logo" class="mb-3" style="width: 180px;">
+          <img src="assets/form.png" alt="Ilustrasi" class="img-fluid mt-3" style="max-height: 280px;" loading="lazy">
+        </div>
+
+        <!-- Kanan -->
+        <div class="col-lg-6 p-4 bg-white overflow-auto" style="max-height: 90vh;">
+          <div class="text-center mb-3">
+            <img src="assets/logo1.png" alt="Logo" style="width: 180px;">
+            <h5 class="mt-2 fw-bold text-pink">Daftar</h5>
+          </div>
+
+          <form id="signupForm">
+            <div class="mb-2">
+              <label for="fullName" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control form-control-sm" id="fullName" required>
+            </div>
+            <div class="row mb-2">
+              <div class="col">
+                <label for="firstName" class="form-label">Nama Depan</label>
+                <input type="text" class="form-control form-control-sm" id="firstName" required>
+              </div>
+              <div class="col">
+                <label for="lastName" class="form-label">Nama Belakang</label>
+                <input type="text" class="form-control form-control-sm" id="lastName" required>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control form-control-sm" id="email" required>
+            </div>
+            <div class="mb-2">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control form-control-sm" id="password" required>
+            </div>
+            <div class="mb-2">
+              <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+              <input type="password" class="form-control form-control-sm" id="confirmPassword" required>
+            </div>
+            <div class="form-check mb-2 text-sm">
+              <input class="form-check-input" type="checkbox" id="terms" required />
+              <label class="form-check-label" for="terms">
+                Saya telah membaca dan setuju dengan
+                <a href="#" rel="nofollow">Privacy Policy</a>,
+                <a href="#" rel="nofollow">Terms of Use</a>, dan
+                <a href="#" rel="nofollow">Cookies Policy</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn w-100 mt-2 text-white" style="background-color:#eb44bb;">Buat Akun</button>
+            <p class="mt-3 text-center text-sm">
+              Sudah punya akun? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-pink text-decoration-none">Masuk</a>
+            </p>
+          </form>
+
+          <!-- Fallback SEO -->
+          <noscript>
+            <p class="text-center mt-3"><a href="sign-up.html">Formulir Daftar di Halaman Penuh</a></p>
+          </noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero d-flex align-items-center text-white py-5" style="background-color: #d153a1; min-height: 100vh; padding-top: 100px;" id="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <h6 class="text-uppercase mb-2 fs-5" style="color: #FFFFFF;">100% WORK FROM ANYWHERE SUPPORT!</h6>
+        <h1 class="fw-bold mb-4 display-3" style="color: #0086CA;"> Bangun Masa Depan Teknologi Bersama<br />Winnicode Garuda</h1>
+        <a href="#tentang" class=" col-md-6 text-center btn btn-light">Mulai</a>
+      </div>
+      <div class="col-md-6 text-center mt-4 mt-md-0">
+        <img src="assets/hero.png" alt="Ilustrasi Winnicode Hero" class="img-fluid" loading="lazy" style="max-height: 1000px;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tentang -->
+<section id="tentang" class="py-5 bg-white text-dark">
+  <div class="container bg-overlay">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="assets/visi.png" alt="Ilustrasi Tentang Winnicode" class="img-fluid rounded shadow" loading="lazy" style="max-height: 400px;" />
+      </div>
+      <div class="col-md-6">
+        <h3 class="fw-bold">Tentang PT Winnicode Garuda Teknologi</h3>
+        <p class="text-muted">PT Winnicode Garuda Teknologi adalah perusahaan digital yang berfokus pada pengembangan solusi teknologi berbasis sistem informasi...</p>
+        <div class="mt-3">
+          <a href="#visi" class="btn btn-outline-primary me-2" style=" color: #eb44bb;">Lihat Visi</a>
+          <a href="#misi" class="btn btn-outline-secondary" style="color: #7854C5;">Lihat Misi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cara Kerja -->
+<section id="cara-kerja" class="py-5 bg-white text-dark">
+  <div class="container bg-overlay">
+    <h3 class="fw-bold text-center mb-4">Cara Kerja Kami</h3>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/9244/9244649.png" width="60" loading="lazy" />
+        <h5 class="fw-semibold">Discover</h5>
+        <p>Pelamar menemukan dan mendaftar lowongan sesuai minat dan keahlian.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" width="60" loading="lazy" />
+        <h5 class="fw-semibold">Screen</h5>
+        <p>Sistem menyaring lamaran otomatis berdasarkan kriteria yang ditentukan.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972557.png" width="60" loading="lazy" />
+        <h5 class="fw-semibold">Decide</h5>
+        <p>HR menilai dan memutuskan hasil seleksi, sistem mengirimkan email notifikasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visi -->
+<section class="py-5 bg-light" id="visi">
+  <div class="container bg-overlay">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <h4 class="fw-bold">VISI KAMI</h4>
+        <p>Menjadi pelopor dalam transformasi digital di bidang jurnalistik Indonesia dengan menghadirkan teknologi inovatif yang mendukung kolaborasi, akurasi, dan kecepatan informasi di era kerja jarak jauh, serta menciptakan ekosistem kerja yang inklusif, berkelanjutan, dan berorientasi pada pengembangan talenta digital lokal.</p>
+        <a href="#misi" class="btn btn-primary">Misi</a>
+      </div>
+      <div class="col-md-6">
+        <img src="assets/visi.png" alt="Visi Winnicode" class="img-fluid" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Misi -->
+<section class="py-5 bg-white" id="misi">
+  <div class="container bg-overlay">
+    <h4 class="text-center fw-bold mb-4">MISI KAMI</h4>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/270/270014.png" width="60" loading="lazy" />
+        <p>Membangun platform digital yang mudah diakses dan digunakan kandidat pelamar</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" width="60" loading="lazy" />
+        <p>Menyediakan sistem otomatisasi untuk mempercepat proses seleksi dan komunikasi</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/3875/3875152.png" width="60" loading="lazy" />
+        <p>Mendorong budaya kerja berbasis digital yang fleksibel dan produktif</p>
+        <a href="#visi" class="btn btn-primary">Visi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="footer-section py-5 bg-light">
+  <div class="container">
+    <div class="row text-start">
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">COMPANY</h6>
+        <ul class="list-unstyled">
+          <li><a href="#cara-kerja" class="text-decoration-none text-dark">Cara Kerja Kami</a></li>
+          <li><a href="#hero" class="text-decoration-none text-dark">Beranda</a></li>
+          <li><a href="#tentang" class="text-decoration-none text-dark">Tentang Kami</a></li>
+          <li><a href="#lihatlowongan" class="text-decoration-none text-dark" id="footerLowongan">Lowongan Aktif</a></li>
+          <li><a href="#" class="text-decoration-none text-dark">Privacy & Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">TAUTAN</h6>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-globe2 me-2"></i><a href="https://www.winnicode.com" target="_blank" class="text-decoration-none text-dark">www.winnicode.com</a></li>
+          <li><i class="bi bi-instagram me-2"></i><a href="https://instagram.com/winnicode" target="_blank" class="text-decoration-none text-dark">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="fw-bold mb-3">KONTAK KAMI</h6>
+        <ul class="list-unstyled text-dark">
+          <li><i class="bi bi-envelope me-2"></i><a href="mailto:winnicodegarudaofficial@gmail.com" class="text-decoration-none text-dark">winnicodegarudaofficial@gmail.com</a></li>
+          <li><i class="bi bi-geo-alt me-2"></i>Jl. Asia Afrika No.158. Kb. Pisang, Kec. Sumur Bandung, Kota Bandung</li>
+          <li><i class="bi bi-telephone me-2"></i>Hubungi: +6285159932501</li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <p class="mb-0 small text-muted">&copy; 2025 PT Winnicode Garuda Teknologi.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
