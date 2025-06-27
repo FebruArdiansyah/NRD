@@ -1,4 +1,3 @@
-/* ───────────────────────── HELPER ───────────────────────── */
 const hashPassword = s => btoa(unescape(encodeURIComponent(s)));
 const readFileAsDataURL = f =>
   new Promise((res, rej) => {
@@ -8,10 +7,7 @@ const readFileAsDataURL = f =>
     r.readAsDataURL(f);
   });
 
-/* ───────────────────────── MAIN ───────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* === Grab Elements === */
   const $id = id => document.getElementById(id);
   const signupForm  = $id('signupForm');
   const loginForm   = $id('loginForm');
@@ -19,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const editForm    = $id('editProfileForm');
   const editBtn     = $id('editProfileBtn');
 
-  /* === Navbar state === */
   let me = JSON.parse(localStorage.getItem('loggedInUser') || null);
 
-  /* === Display helper === */
   function showProfile(u){
     const set = (id,val)=>{const el=$id(id); el&&(el.textContent = val || '-');};
     set('profileUsername',        u.username);
@@ -81,9 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (me) showProfile(me);
 
-  /* =====================================================================
-     SIGN-UP
-  ===================================================================== */
   signupForm?.addEventListener('submit', e => {
     e.preventDefault();
     const fn = $id('fullName').value.trim();
@@ -105,9 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location = 'index.html';
   });
 
-  /* =====================================================================
-     LOGIN
-  ===================================================================== */
   loginForm?.addEventListener('submit', e => {
     e.preventDefault();
     const user = $id('username').value.trim();
@@ -119,17 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
     location = 'index.html';
   });
 
-  /* =====================================================================
-     LOGOUT
-  ===================================================================== */
   logoutBtn?.addEventListener('click', () => {
     localStorage.removeItem('loggedInUser');
     location = 'index.html';
   });
 
-  /* =====================================================================
-     PREFILL MODAL EDIT
-  ===================================================================== */
   editBtn?.addEventListener('click', () => {
     if (!me) return;
     const pf = (id,val)=>{ $id(id).value = val || ''; };
@@ -153,27 +135,24 @@ document.addEventListener('DOMContentLoaded', () => {
     pf('editInterests',       me.interests);
   });
 
-  /* =====================================================================
-     SIMPAN PERUBAHAN PROFIL
-  ===================================================================== */
   editForm?.addEventListener('submit', async e => {
     e.preventDefault();
     const db  = JSON.parse(localStorage.getItem('users') || '[]');
     const idx = db.findIndex(u => u.email === me.email);
     if (idx === -1) return alert('User hilang.');
 
-    /* ---- Foto ---- */
     let photoData = me.photoData || '';
-    const fotoFile = $id('editProfileImage').files[0];
+    const fotoInput = $id('editProfileImage');
+    const fotoFile = fotoInput && fotoInput.files ? fotoInput.files[0] : null;
     if (fotoFile){
       if (!fotoFile.type.startsWith('image/')) return alert('File foto harus gambar.');
       if (fotoFile.size > 2*1024*1024)         return alert('Foto maks 2 MB.');
       photoData = await readFileAsDataURL(fotoFile);
     }
 
-    /* ---- CV ---- */
     let cvName = me.cvName || '', cvData = me.cvData || '';
-    const cvFile = $id('editCv').files[0];
+    const cvInput = $id('editCv');
+    const cvFile = cvInput && cvInput.files ? cvInput.files[0] : null;
     if (cvFile){
       if (cvFile.type !== 'application/pdf') return alert('CV harus PDF.');
       if (cvFile.size > 2*1024*1024)         return alert('CV maks 2 MB.');
@@ -181,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cvData = await readFileAsDataURL(cvFile);
     }
 
-    /* ---- Build object ---- */
     const g = id => $id(id).value.trim();
     const upd = {
       ...me,
@@ -206,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cvName, cvData, photoData
     };
 
-    /* ---- Cek email duplikat ---- */
     if (db.some((u,i)=>i!==idx && u.email.toLowerCase()===upd.email.toLowerCase()))
       return alert('Email sudah dipakai akun lain.');
 
@@ -219,23 +196,16 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Profil tersimpan.');
   });
 
-  /* =====================================================================
-     PREVIEW FOTO LANGSUNG
-  ===================================================================== */
   $id('editProfileImage')?.addEventListener('change', function(){
-    if (!this.files[0]) return;
+    if (!this.files || !this.files[0]) return;
     const r = new FileReader();
     r.onload = e => { $id('profilePicture').src = e.target.result; };
     r.readAsDataURL(this.files[0]);
   });
 
-  /* =====================================================================
-     AUTO-GROW TEXTAREA
-  ===================================================================== */
   document.querySelectorAll('textarea.autogrow').forEach(t=>{
     const resize = () => { t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; };
     ['input','change','keyup'].forEach(evt=> t.addEventListener(evt, resize));
-    resize();                // tinggi awal
+    resize();
   });
-
 });
