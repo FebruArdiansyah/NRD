@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ───────────────────────── Lihat Lowongan ───────────────────────── */
-  const handleLihatLowongan = (e) => {
+ const handleLihatLowongan = (e) => {
   e.preventDefault();
   const logged = JSON.parse(localStorage.getItem('loggedInUser'));
   if (logged) {
@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 };
 
+// Pasang event listener ke tombol navbar dan footer
+lihatLowonganNav?.addEventListener('click', handleLihatLowongan);
+lihatLowonganFoot?.addEventListener('click', handleLihatLowongan);
 
   /* ───────────────────────── APPLY JOB ───────────────────────── */
   applyButtons.forEach(btn => {
