@@ -1,135 +1,219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lowongan Aktif - Winni Code</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lowongan Aktif – Winni Code</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap CSS & Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">  <!-- jika ada -->
 </head>
-<body style="background-image: url('assets/visi.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+<body style="background:url('assets/visi.png') center/cover no-repeat">
 
-  <!-- Navbar -->
+  <!-- ========= NAVBAR ========= -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-2">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-primary" href="index.html">
-        <img src="assets/logo1.png" alt="Logo" height="32">
-      </a>
+      <a class="navbar-brand fw-bold" href="index.html"><img src="assets/logo1.png" height="32" alt=""></a>
       <div class="ms-auto d-flex gap-3 align-items-center">
-        <a class="nav-link fw-bold fs-6 text-primary" href="find-job.html">Lowongan Aktif</a>
-        <a href="profile.html" id="profileIcon" class="nav-link">
-          <i class="bi bi-person-circle fs-4 text-primary"></i>
-        </a>
+        <a class="nav-link fw-bold text-primary" href="#">Lowongan Aktif</a>
+        <a class="nav-link" href="profile.html"><i class="bi bi-person-circle fs-4 text-primary"></i></a>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- ========= LISTING ========= -->
   <div class="container py-5">
 
-    <!-- Job Card -->
-    <div class="card mb-4 shadow-sm bg-white">
+    <!-- ===== Job Card 1 ===== -->
+    <div class="card shadow-sm mb-4">
       <div class="card-body">
-        <h5 class="card-title text-purple" style="color: #7854C5;">Front-End Developer</h5>
-        <p class="card-text">Bertanggung jawab dalam pengembangan UI menggunakan HTML, CSS, JS, dan framework seperti Vue.js atau React.</p>
+        <h5 class="card-title text-purple" style="color:#7854C5">Front-End Developer</h5>
+        <p class="card-text">Bertanggung jawab dalam pengembangan UI…</p>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Persyaratan:</h6>
-          <ul class="ps-3">
-            <li>Minimal D3/S1 Informatika</li>
-            <li>1 tahun pengalaman</li>
-            <li>Responsive design & REST API</li>
-          </ul>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Persyaratan:</h6>
+        <ul class="ps-3 small">
+          <li>Minimal D3/S1 Informatika</li><li>1 tahun pengalaman</li><li>Responsive design & REST API</li>
+        </ul>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Skill:</h6>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge" style="background-color: #eb44bb; color: white;">JavaScript</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">Vue.js</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">Figma</span>
-          </div>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Skill:</h6>
+        <span class="badge bg-pink">JavaScript</span>
+        <span class="badge bg-pink">Vue.js</span>
+        <span class="badge bg-pink">Figma</span>
 
-        <div class="text-muted mb-2">Full-Time • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
+        <div class="text-muted mt-3 mb-2 small">Full-Time • Remote • <strong class="text-primary">Negotiable</strong></div>
         <div class="text-end">
-          <a href="form.html?posisi=Front-End+Developer" class="btn btn-white apply-btn" style="background-color: #eb44bb; color: white;">Lamar</a>
+          <button class="btn btn-white apply-btn" style="background:#eb44bb;color:#fff"
+                  data-bs-toggle="modal" data-bs-target="#applyModal"
+                  data-posisi="Front-End Developer">Lamar</button>
         </div>
       </div>
     </div>
 
-    <!-- Job Card 2 -->
-    <div class="card mb-4 shadow-sm bg-white">
+    <!-- ===== Job Card 2 ===== -->
+    <div class="card shadow-sm mb-4">
       <div class="card-body">
-        <h5 class="card-title text-purple" style="color: #7854C5;">Content Writer – Digital Media</h5>
-        <p class="card-text">Menulis artikel dan konten digital seputar teknologi & bisnis untuk platform media PT. Wincode Garuda Teknologi.</p>
+        <h5 class="card-title" style="color:#7854C5">Content Writer – Digital Media</h5>
+        <p class="card-text">Menulis artikel & konten digital…</p>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Persyaratan:</h6>
-          <ul class="ps-3">
-            <li>Lulusan Komunikasi/Jurnalistik/Sastra</li>
-            <li>Terbiasa menulis SEO-friendly content</li>
-          </ul>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Persyaratan:</h6>
+        <ul class="ps-3 small">
+          <li>Lulusan Komunikasi/Jurnalistik/Sastra</li><li>Terbiasa menulis SEO-friendly content</li>
+        </ul>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Skill:</h6>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge" style="background-color: #eb44bb; color: white;">SEO</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">Copywriting</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">WordPress</span>
-          </div>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Skill:</h6>
+        <span class="badge bg-pink">SEO</span>
+        <span class="badge bg-pink">Copywriting</span>
+        <span class="badge bg-pink">WordPress</span>
 
-        <div class="text-muted mb-2">Freelance • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
+        <div class="text-muted mt-3 mb-2 small">Freelance • Remote • <strong class="text-primary">Negotiable</strong></div>
         <div class="text-end">
-          <a href="#" class="btn btn-white apply-btn" style="background-color: #eb44bb; color: white;">Lamar</a>
+          <button class="btn btn-white apply-btn" style="background:#eb44bb;color:#fff"
+                  data-bs-toggle="modal" data-bs-target="#applyModal"
+                  data-posisi="Content Writer – Digital Media">Lamar</button>
         </div>
       </div>
     </div>
 
-    <!-- Job Card 3 -->
-    <div class="card mb-4 shadow-sm bg-white">
+    <!-- ===== Job Card 3 ===== -->
+    <div class="card shadow-sm mb-4">
       <div class="card-body">
-        <h5 class="card-title text-purple" style="color: #7854C5;">UI/UX Designer</h5>
-        <p class="card-text">Mendesain antarmuka dan pengalaman pengguna untuk aplikasi internal seperti sistem rekrutmen dan media digital.</p>
+        <h5 class="card-title" style="color:#7854C5">UI/UX Designer</h5>
+        <p class="card-text">Mendesain antarmuka & pengalaman pengguna…</p>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Persyaratan:</h6>
-          <ul class="ps-3">
-            <li>Mahir Figma / Adobe XD</li>
-            <li>Pengalaman buat wireframe & prototype</li>
-          </ul>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Persyaratan:</h6>
+        <ul class="ps-3 small">
+          <li>Mahir Figma / Adobe XD</li><li>Pengalaman wireframe & prototype</li>
+        </ul>
 
-        <div class="mb-3">
-          <h6 class="fw-semibold text-purple" style="color: #7854C5;">Skill:</h6>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge" style="background-color: #eb44bb; color: white;">Figma</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">Prototyping</span>
-            <span class="badge" style="background-color: #eb44bb; color: white;">UX Research</span>
-          </div>
-        </div>
+        <h6 class="fw-semibold mb-1" style="color:#7854C5">Skill:</h6>
+        <span class="badge bg-pink">Figma</span>
+        <span class="badge bg-pink">Prototyping</span>
+        <span class="badge bg-pink">UX Research</span>
 
-        <div class="text-muted mb-2">Kontrak • Remote • <strong style="color: #2196f3;">Negotiable</strong></div>
+        <div class="text-muted mt-3 mb-2 small">Kontrak • Remote • <strong class="text-primary">Negotiable</strong></div>
         <div class="text-end">
-          <a href="#" class="btn btn-white apply-btn" style="background-color: #eb44bb; color: white;">Lamar</a>
+          <button class="btn btn-white apply-btn" style="background:#eb44bb;color:#fff"
+                  data-bs-toggle="modal" data-bs-target="#applyModal"
+                  data-posisi="UI/UX Designer">Lamar</button>
         </div>
       </div>
     </div>
 
+  </div><!-- /container -->
+
+  <!-- ========= MODAL : APPLY FORM ========= -->
+  <div class="modal fade" id="applyModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <form id="applyForm" class="modal-content" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h5 class="modal-title">Form Lamaran</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- ── STEP 1 : Data Kontak & CV ── -->
+          <div class="mb-3">
+            <label class="form-label">Posisi yang Dilamar</label>
+            <input id="posisiInput" name="posisi" class="form-control" readonly>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nama Lengkap *</label>
+              <input name="nama" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Aktif *</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">No. HP / WhatsApp *</label>
+              <input name="telepon" class="form-control" placeholder="+62 812…" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Domisili *</label>
+              <input name="domisili" class="form-control" placeholder="Jakarta, Bandung…" required>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-md-6">
+              <label class="form-label">Pendidikan Terakhir *</label>
+              <select name="pendidikan" class="form-select" required>
+                <option value="" selected disabled>Pilih</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Gaji yang Diharapkan (IDR)</label>
+              <input name="gaji" type="number" min="0" step="100000" class="form-control" placeholder="2.000.000">
+            </div>
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label class="form-label">Pengalaman kerja dalam posisi ini *</label>
+            <select name="pengalaman" class="form-select" required>
+              <option value="" selected disabled>Pilih</option>
+              <option>&lt; 1 tahun</option><option>1–2 tahun</option><option>3–5 tahun</option><option>&gt; 5 tahun</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Proyek/tugas paling berdampak *</label>
+            <textarea name="proyek" rows="3" class="form-control" required></textarea>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Upload CV (PDF, ≤2 MB) *</label>
+              <input name="cv" type="file" accept="application/pdf" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Upload Portofolio (PDF/PPT/ZIP) *</label>
+              <input name="portfolio" type="file" accept=".pdf,.ppt,.pptx,.zip,.rar" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-check mt-4">
+            <input class="form-check-input" type="checkbox" id="agree" required>
+            <label class="form-check-label" for="agree">
+              Saya menyetujui <a href="#">Privacy Policy</a>.
+            </label>
+          </div>
+
+        </div><!-- /modal-body -->
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Kirim Lamaran</button>
+        </div>
+      </form>
+    </div>
   </div>
 
-  <!-- Bootstrap JS -->
+  <!-- ========= MODAL SUKSES ========= -->
+  <div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Lamaran Berhasil Dikirim</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="mb-4">Terima kasih! Lamaran kamu sudah kami terima.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="index.html" class="btn btn-primary">Kunjungi Beranda</a>
+            <button class="btn btn-outline-primary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= SCRIPT ========= -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="js/script.js"></script>
+  <script src="js/apply-modal.js"></script>
 </body>
 </html>
