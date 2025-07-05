@@ -1,0 +1,68 @@
+/* =====================================================
+   APPLICATION STATUS STYLES
+   ===================================================== */
+
+#applicationList .card {
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transition: transform 0.2s;
+}
+
+#applicationList .card:hover {
+  transform: scale(1.01);
+}
+
+#applicationList .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--purple-text);
+  margin-bottom: 0.25rem;
+}
+
+#applicationList .card-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#applicationList .status-badge {
+  display: inline-block;
+  padding: 0.35em 0.75em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  color: var(--white);
+}
+
+.status-pending {
+  background-color: #ffc107; /* kuning */
+}
+
+.status-accepted {
+  background-color: #28a745; /* hijau */
+}
+
+.status-rejected {
+  background-color: #dc3545; /* merah */
+}
+
+#applicationList .card-text {
+  font-size: 0.95rem;
+  color: var(--gray-text);
+  margin-bottom: 0.25rem;
+}
+
+#applicationList .timestamp {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 575.98px) {
+  #applicationList .card {
+    padding: 1rem;
+  }
+}

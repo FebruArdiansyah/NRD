@@ -5,10 +5,10 @@
   --gray-label:#666;
 }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(180deg,var(--magenta)0%,var(--magenta-light)55%,#f5f7fa 55%);
-  min-height:100vh;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--magenta); /* full pink solid */
+  min-height: 100vh;
 }
 
 /* ===== topbar =========================================== */
